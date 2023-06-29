@@ -24,17 +24,17 @@ struct ContentView: View {
                     Section{
                         Stepper("\(amountSleepPerDay.formatted()) hours", value: $amountSleepPerDay, in: 4...12, step: 0.25)
                     } header: {
-                        Text("Desired amount of sleep")
+                        Text("Desired amount of sleep:")
                     }
                     
                     Section {
                         Stepper("\(amountCupOfCoffee) Cup(s)", value: $amountCupOfCoffee, in: 1...20)
                     } header: {
-                        Text("Daily Coffee intake")
+                        Text("Daily Coffee intake:")
                     }
                     
                     Button("Cauculate", action: {
-                        
+                        calculateBedTime()
                     })
                     .buttonStyle(.borderedProminent)
                     .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
@@ -42,6 +42,10 @@ struct ContentView: View {
                 }
             }.navigationTitle("Better Rest")
         }
+    }
+    
+    func calculateBedTime() {
+        
     }
 }
 
