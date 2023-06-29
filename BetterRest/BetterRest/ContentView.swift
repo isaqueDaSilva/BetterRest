@@ -19,32 +19,33 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Form {
+            Form {
+                VStack{
+                    Text("When do you want to wake up?")
+                        .font(.headline.bold())
                     DatePicker("When do you want to wake up?", selection: $wakeUp, displayedComponents: .hourAndMinute)
                         .datePickerStyle(.wheel)
                         .labelsHidden()
-                        .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
-                    
-                    Section{
-                        Stepper("\(amountSleepPerDay.formatted()) Hours", value: $amountSleepPerDay, in: 4...12, step: 0.25)
-                    } header: {
-                        Text("Desired amount of sleep:")
-                    }
-                    
-                    Section {
-                        Stepper("\(amountCupOfCoffee) Cup(s)", value: $amountCupOfCoffee, in: 1...20)
-                    } header: {
-                        Text("Daily Coffee intake:")
-                    }
-                    
-                    Button("Cauculate", action: {
-                        calculateBedTime()
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
-                    .frame(maxWidth: 430)
                 }
+                .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
+                Section{
+                    Stepper("\(amountSleepPerDay.formatted()) Hours", value: $amountSleepPerDay, in: 4...12, step: 0.25)
+                } header: {
+                    Text("Desired amount of sleep:")
+                }
+                
+                Section {
+                    Stepper("\(amountCupOfCoffee) Cup(s)", value: $amountCupOfCoffee, in: 1...20)
+                } header: {
+                    Text("Daily Coffee intake:")
+                }
+                
+                Button("Cauculate", action: {
+                    calculateBedTime()
+                })
+                .buttonStyle(.borderedProminent)
+                .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
+                .frame(maxWidth: 430)
             }.navigationTitle("BetterRest")
         }
         .alert(alertTitle, isPresented: $showingAlert) {
@@ -72,6 +73,7 @@ struct ContentView: View {
             alertTitle = "Error"
             alertMessage = "Sorry, but it looks like there was an error calculating your ideal bedtime!"
         }
+        showingAlert = true
     }
 }
 
