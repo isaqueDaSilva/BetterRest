@@ -38,7 +38,7 @@ struct ContentView: View {
                     })
                     .buttonStyle(.borderedProminent)
                     .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
-                    .frame(width: 400)
+                    .frame(maxWidth: 430)
                 }
             }.navigationTitle("Better Rest")
         }
