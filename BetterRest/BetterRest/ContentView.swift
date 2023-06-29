@@ -22,7 +22,7 @@ struct ContentView: View {
                         .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
                     
                     Section{
-                        Stepper("\(amountSleepPerDay.formatted()) hours", value: $amountSleepPerDay, in: 4...12, step: 0.25)
+                        Stepper("\(amountSleepPerDay.formatted()) Hours", value: $amountSleepPerDay, in: 4...12, step: 0.25)
                     } header: {
                         Text("Desired amount of sleep:")
                     }
@@ -40,7 +40,7 @@ struct ContentView: View {
                     .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
                     .frame(maxWidth: 430)
                 }
-            }.navigationTitle("Better Rest")
+            }.navigationTitle("BetterRest")
         }
     }
     
