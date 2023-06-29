@@ -44,7 +44,7 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Stepper("\(amountCupOfCoffee) Cup(s)", value: $amountCupOfCoffee, in: 1...20)
+                    Stepper("\(amountCupOfCoffee) \(amountCupOfCoffee == 1 ? "Cup" : "Cups")", value: $amountCupOfCoffee, in: 1...20)
                 } header: {
                     Text("Daily Coffee intake:")
                 }
