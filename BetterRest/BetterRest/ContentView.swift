@@ -9,9 +9,17 @@ import CoreML
 import SwiftUI
 
 struct ContentView: View {
-    @State private var wakeUp = Date.now
+    @State private var wakeUp = defaultWakeTime
     @State private var amountSleepPerDay = 8.0
     @State private var amountCupOfCoffee = 1
+    
+    static var defaultWakeTime: Date {
+        var components = DateComponents()
+        components.hour = 7
+        components.minute = 0
+        
+        return Calendar.current.date(from: components) ?? Date.now
+    }
     
     @State private var alertTitle = ""
     @State private var alertMessage = ""
@@ -28,6 +36,7 @@ struct ContentView: View {
                         .labelsHidden()
                 }
                 .listRowBackground(Color(CGColor(red: 240, green: 240, blue: 246, alpha: 0)))
+                
                 Section{
                     Stepper("\(amountSleepPerDay.formatted()) Hours", value: $amountSleepPerDay, in: 4...12, step: 0.25)
                 } header: {
